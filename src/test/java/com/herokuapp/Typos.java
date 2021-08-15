@@ -10,16 +10,15 @@ import org.testng.annotations.Test;
 
 public class Typos {
     @Test
-    public void typos() throws InterruptedException {
+    public void typos() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
 
         System.setProperty("webdriver.chrome.driver", "D:/TeachMeSkills/WebDriver/chromedriver.exe");
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/typos");
-        Thread.sleep(2000);
 
-        WebElement string1 = driver.findElement(By.xpath("//*[@id=\"content\"]/div/p[1]/text()"));
+        WebElement string1 = driver.findElement(By.xpath("//*[@id=\"content\"]/div/p[1]"));
         String string1Text = string1.getText();
         Assert.assertEquals(string1Text, "This example demonstrates a typo being introduced. It does it randomly on each page load.");
 
@@ -27,14 +26,6 @@ public class Typos {
         String string2Text = string2.getText();
         Assert.assertEquals(string2Text, "Sometimes you'll see a typo, other times you won't.");
 
-        try {
-            Thread.sleep(3000);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        finally {
-            driver.quit();
-        }
+        driver.quit();
     }
 }

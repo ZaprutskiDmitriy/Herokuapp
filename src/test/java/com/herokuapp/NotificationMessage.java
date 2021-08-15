@@ -10,31 +10,21 @@ import org.testng.annotations.Test;
 
 public class NotificationMessage {
     @Test
-    public void notificationMessage() throws InterruptedException {
+    public void notificationMessage() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
 
         System.setProperty("webdriver.chrome.driver", "D:/TeachMeSkills/WebDriver/chromedriver.exe");
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/notification_message_rendered");
-        Thread.sleep(2000);
 
         WebElement clickHereRef = driver.findElement(By.cssSelector("[href='/notification_message']"));
         clickHereRef.click();
-        Thread.sleep(2000);
 
-        WebElement confirmationMessageElement = driver.findElement(By.id("flash"));
+        WebElement confirmationMessageElement = driver.findElement(By.xpath("//div//div[@id='flash']"));
         String confirmationMessage = confirmationMessageElement.getText();
-        Assert.assertEquals(confirmationMessage, " Action successful ");
+        Assert.assertEquals(confirmationMessage, "Action successful\n×");
 
-        try {
-            Thread.sleep(3000);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        finally {
-            driver.quit();
-        }
+        driver.quit();
     }
 }

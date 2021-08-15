@@ -1,6 +1,7 @@
 package com.herokuapp;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,35 +12,21 @@ import org.testng.annotations.Test;
 
 public class Inputs {
 
-    public void inputs() throws InterruptedException {
+    @Test
+    public void inputs() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
 
         System.setProperty("webdriver.chrome.driver", "D:/TeachMeSkills/WebDriver/chromedriver.exe");
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/inputs");
-        Thread.sleep(2000);
 
-        WebElement numberInput = driver.findElement(By.tagName("input"));
-        numberInput.sendKeys("123");
+        WebElement input = driver.findElement(By.tagName("input"));
+        input.sendKeys(Keys.ARROW_DOWN);
+        input.clear();
+        input.sendKeys(Keys.ARROW_UP);
+        input.sendKeys(Keys.ARROW_UP);
 
-        WebElement elementB = driver.findElement(By.id("page-footer"));
-        elementB.click();
-
-
-/*
-        String actualInput = numberInput.getText();
-        Assert.assertEquals(actualInput, "123");
-*/
-
-        try {
-            Thread.sleep(3000);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        finally {
             driver.quit();
-        }
     }
 }

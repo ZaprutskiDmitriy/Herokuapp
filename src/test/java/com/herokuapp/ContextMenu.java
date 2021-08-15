@@ -1,13 +1,12 @@
 package com.herokuapp;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,9 +28,12 @@ public class ContextMenu {
         Actions actions = new Actions(driver);
         actions.contextClick(box).build().perform();
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals(alert.getText(), "You selected a context menu");
 
-//        driver.quit();
+        Alert alertAccept = driver.switchTo().alert();
+        alertAccept.accept();
+
+        driver.quit();
     }
 }

@@ -10,14 +10,13 @@ import org.testng.annotations.Test;
 
 public class Sortable_Data_Tables {
     @Test
-    public void sortableDataTables() throws InterruptedException {
+    public void sortableDataTables() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
 
         System.setProperty("webdriver.chrome.driver", "D:/TeachMeSkills/WebDriver/chromedriver.exe");
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/tables");
-        Thread.sleep(2000);
 
         WebElement cellFirst = driver.findElement(By.xpath("//table//tr[1]//td[1]"));
         String cellFirstContent = cellFirst.getText();
@@ -31,15 +30,6 @@ public class Sortable_Data_Tables {
         String cellThirdContent = cellThird.getText();
         Assert.assertEquals(cellThirdContent,"Frank");
 
-
-        try {
-            Thread.sleep(2000);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        finally {
-            driver.quit();
-        }
+        driver.quit();
     }
 }

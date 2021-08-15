@@ -106,7 +106,6 @@ public class ForgotPasswordTest {
             Actions actions = new Actions(driver);
 
             actions.moveToElement(elementA).clickAndHold().moveToElement(elementB).release().build().perform();
-//            actions.dragAndDrop(elementB, elementA);
 
         }
         catch (InterruptedException e){

@@ -25,7 +25,6 @@ public class FileDownloader {
 
         WebElement file = driver.findElement(By.cssSelector("a[href='download/euro.pdf']"));
         file.click();
-        Thread.sleep(2000);
 
 /*
         File folder = new File(System.getProperty("user.dir"));
