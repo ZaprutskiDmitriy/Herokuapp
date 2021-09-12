@@ -1,5 +1,6 @@
 package com.herokuapp;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,7 @@ public class NotificationMessage {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
 
-        System.setProperty("webdriver.chrome.driver", "D:/TeachMeSkills/WebDriver/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/notification_message_rendered");
 

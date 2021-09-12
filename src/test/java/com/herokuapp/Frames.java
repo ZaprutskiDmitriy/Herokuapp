@@ -1,5 +1,6 @@
 package com.herokuapp;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,7 @@ public class Frames {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
 
-        System.setProperty("webdriver.chrome.driver", "D:/TeachMeSkills/WebDriver/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/iframe");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
