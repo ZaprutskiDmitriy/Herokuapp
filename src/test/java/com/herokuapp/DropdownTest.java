@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Dropdown {
+public class DropdownTest {
 
     @Link("allure-results")
     @Issue("JIRA-1")

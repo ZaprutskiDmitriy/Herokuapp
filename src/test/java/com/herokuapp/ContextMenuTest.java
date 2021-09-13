@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class ContextMenu {
+public class ContextMenuTest {
 
     @Test
     public void contextMenu() {

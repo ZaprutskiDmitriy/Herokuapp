@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AddRemoveElements {
+public class AddRemoveElementsTest {
 
     @Test
     public void addRemoveElements() {

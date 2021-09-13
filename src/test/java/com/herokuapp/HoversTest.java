@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Hovers {
+public class HoversTest {
     @Test
     public void hovers() {
         ChromeOptions chromeOptions = new ChromeOptions();

@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class NotificationMessage {
+public class NotificationMessageTest {
     @Test
     public void notificationMessage() {
         ChromeOptions chromeOptions = new ChromeOptions();

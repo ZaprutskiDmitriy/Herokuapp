@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Typos {
+public class TyposTest {
     @Test
     public void typos() {
         ChromeOptions chromeOptions = new ChromeOptions();

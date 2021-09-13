@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Sortable_Data_Tables {
+public class SortableDataTablesTest {
     @Test
     public void sortableDataTables() {
         ChromeOptions chromeOptions = new ChromeOptions();

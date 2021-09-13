@@ -8,28 +8,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.util.concurrent.TimeUnit;
 
-public class Checkboxes {
+public class FramesTest {
 
     @Test
-    public void checkboxes() {
+    public void frames() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(chromeOptions);
-        driver.get("http://the-internet.herokuapp.com/checkboxes");
+        driver.get("http://the-internet.herokuapp.com/iframe");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-        WebElement checkbox1 = driver.findElement(By.cssSelector("[type=checkbox]"));
-        checkbox1.click();
+        WebElement iFrameElement = driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(iFrameElement);
 
-        Assert.assertTrue(checkbox1.isSelected());
+        WebElement iFrameBody = driver.findElement(By.tagName("body"));
+        String iFrameBodyText = iFrameBody.getText();
+        Assert.assertEquals(iFrameBodyText, "Your content goes here.");
 
-        WebElement checkbox2 = driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]"));
-        Assert.assertTrue(checkbox2.isSelected());
-        checkbox2.click();
-
-        Assert.assertFalse(checkbox2.isSelected());
+        driver.switchTo().defaultContent();
 
         driver.quit();
     }

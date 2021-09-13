@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class DynamicControls {
+public class DynamicControlsTest {
 
     @Test
     public void dynamicControlsTest() {
